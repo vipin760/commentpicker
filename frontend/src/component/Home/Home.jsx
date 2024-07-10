@@ -123,7 +123,9 @@ const Home = () => {
             Click
           </button>
         </form>
-        <p className="text-red-600 text-center">*{error}</p>
+        {error&&(
+            <p className="text-red-600 text-center">*{error}</p>
+        )}
         <div className="text-center">
           <h2 className="text-3xl font-medium text-white pb-4">Winner</h2>
           {winner && (
