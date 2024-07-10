@@ -83,7 +83,7 @@ const Home = () => {
         validationErr = "Enter correct format";
       }
       setError(validationErr);
-      if (!error) {
+      if (validationErr.length===0) {
         let url = data.replace("https://www.youtube.com/watch?v=", "");
         getData(url);
       }
