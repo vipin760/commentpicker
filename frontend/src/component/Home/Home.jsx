@@ -127,7 +127,7 @@ const Home = () => {
             <p className="text-red-600 text-center">*{error}</p>
         )}
         <div className="text-center">
-          <h2 className="text-3xl font-medium text-white pb-4">Winner</h2>
+          <h2 className="text-3xl font-medium text-white pb-1 my-4">Winner</h2>
           {winner && (
             <>
               <p className="text-red-700 font-bold">Name: {winner.name}</p>
