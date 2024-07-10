@@ -31,7 +31,7 @@ const Home = () => {
   const [data, setData] = useState("");
   const [winner, setWinner] = useState({ name: "....?", comment: "...?" });
   const [tempWinner, setTempWinner] = useState({}); // For displaying changing comments
-  
+  const [error, setError] = useState("");
 
   const getData = async (url) => {
     const response = await axios.get(
@@ -71,11 +71,22 @@ const Home = () => {
   };
 
   const handleSubmit = (e) => {
-    setWinner({ name: "....?", comment: "...?" })
+    setWinner({ name: "....?", comment: "...?" });
     e.preventDefault();
     try {
-      let url = data.replace("https://www.youtube.com/watch?v=", "");
-      getData(url);
+      const regex =
+        /(?:https?:\/\/)?(?:www\.)?youtube\.com\/watch\?v=([a-zA-Z0-9_-]+)/;
+      var validationErr;
+      if (!data.trim()) {
+        validationErr = "Empty Field not allowed";
+      } else if (!data.match(regex)) {
+        validationErr = "Enter correct format";
+      }
+      setError(validationErr);
+      if (!error) {
+        let url = data.replace("https://www.youtube.com/watch?v=", "");
+        getData(url);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -95,12 +106,24 @@ const Home = () => {
       </div>
 
       <div className="flex flex-col items-center p-4 rounded-lg bg-slate-400 my-2 w-full">
-        <form className="my-4 flex gap-1">
-          <input type="text" className="bg-white rounded-lg p-1" placeholder="Enter instgram url here...." onChange={(e) => setData(e.target.value)} />
-          <button type="submit" className="bg-white rounded-lg p-1 hover:bg-slate-500 hover:text-white" onClick={handleSubmit}>
+        <form className="flex gap-1">
+          <input
+            type="text"
+            className="bg-white rounded-lg p-1"
+            placeholder="Enter instgram url here...."
+            onChange={(e) => {
+              setError(""), setData(e.target.value);
+            }}
+          />
+          <button
+            type="submit"
+            className="bg-white rounded-lg p-1 hover:bg-slate-500 hover:text-white"
+            onClick={handleSubmit}
+          >
             Click
           </button>
         </form>
+        <p className="text-red-600 text-center">*{error}</p>
         <div className="text-center">
           <h2 className="text-3xl font-medium text-white pb-4">Winner</h2>
           {winner && (
@@ -111,7 +134,9 @@ const Home = () => {
           )}
         </div>
         <div className="text-center my-3">
-          <h2 className="text-3xl font-medium text-white pb-4">Randomly Picking...</h2>
+          <h2 className="text-3xl font-medium text-white pb-4">
+            Randomly Picking...
+          </h2>
           {tempWinner && (
             <>
               <p className="text-red-700 font-bold">{tempWinner.name}</p>
@@ -123,24 +148,37 @@ const Home = () => {
 
       {/* card start */}
       <div className="bg-slate-500 w-full py-6">
-          <div className="text-center">
-          <h1 className="text-2xl font-bold text-white my-2">RANDOM COMMENT PICKER</h1>
-          <p className="text-white font-medium">Our latest comment picker is here. Effortlessly select our winner</p>
-          </div>
-      <div className="my-3 flex flex-col gap-2 sm:flex-row flex-wrap items-center justify-center">
-        {card &&
-          card.map((items, idx) => (
-            <div className="max-w-xs md:max-w-sm h-96 p-5 rounded-lg flex flex-col items-center justify-evenly bg-white" key={idx}>
-              <i className={`my-4 text-white p-3 rounded-lg bg-slate-500 ${items.icon}`}></i>
-              <h2 className="text-2xl font-semibold my-2">
-                {items.heading}
-              </h2>
-              <p className="text-justify text-sm lg:text-md">{items.description}
-              </p>
-              <a href="" className="bg-slate-500 p-2 rounded-lg my-4 text-white">{items.button} <i className={items.btn_icon}></i> </a>
-            </div>
-          ))}
-      </div>
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-white my-2">
+            RANDOM COMMENT PICKER
+          </h1>
+          <p className="text-white font-medium">
+            Our latest comment picker is here. Effortlessly select our winner
+          </p>
+        </div>
+        <div className="my-3 flex flex-col gap-2 sm:flex-row flex-wrap items-center justify-center">
+          {card &&
+            card.map((items, idx) => (
+              <div
+                className="max-w-xs md:max-w-sm h-96 p-5 rounded-lg flex flex-col items-center justify-evenly bg-white"
+                key={idx}
+              >
+                <i
+                  className={`my-4 text-white p-3 rounded-lg bg-slate-500 ${items.icon}`}
+                ></i>
+                <h2 className="text-2xl font-semibold my-2">{items.heading}</h2>
+                <p className="text-justify text-sm lg:text-md">
+                  {items.description}
+                </p>
+                <a
+                  href=""
+                  className="bg-slate-500 p-2 rounded-lg my-4 text-white"
+                >
+                  {items.button} <i className={items.btn_icon}></i>{" "}
+                </a>
+              </div>
+            ))}
+        </div>
       </div>
     </div>
   );
