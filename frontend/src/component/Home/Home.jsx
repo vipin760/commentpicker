@@ -75,15 +75,15 @@ const Home = () => {
     e.preventDefault();
     try {
       const regex =
-        /(?:https?:\/\/)?(?:www\.)?youtube\.com\/watch\?v=([a-zA-Z0-9_-]+)/;
-      var validationErr;
+       /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]+)/;
+      var validationErr="";
       if (!data.trim()) {
         validationErr = "Empty Field not allowed";
       } else if (!data.match(regex)) {
         validationErr = "Enter correct format";
       }
-      setError(validationErr);
-      if (validationErr.length===0) {
+      console.log(validationErr.length)
+      if (validationErr.length === 0) {
         let url = data.replace("https://www.youtube.com/watch?v=", "");
         getData(url);
       }
