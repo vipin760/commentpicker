@@ -27,14 +27,21 @@ const card = [
     btn_icon: "fas fa-chevron-circle-right",
   },
 ];
+
+const users = [
+  { name:"shiyas.t_", comment:"awsome keep it up" },
+  { name:"vipin_760", comment:"first comment" },
+  { name:"amal_007", comment:"going well" }
+]
+
 const Home = () => {
   const [data, setData] = useState("");
   const [winner, setWinner] = useState({ name: "....?", comment: "...?" });
   const [tempWinner, setTempWinner] = useState({}); // For displaying changing comments
   const [error, setError] = useState("");
+  const [ count, setCount] = useState(0)
 
   const getData = async (url) => {
-    console.log('working');
     const response = await axios.get(
       `https://www.googleapis.com/youtube/v3/commentThreads?key=${API_KEY}&videoId=${url}&part=snippet&maxResults=100`
     );
@@ -65,13 +72,16 @@ const Home = () => {
       name: comment.snippet.topLevelComment.snippet.authorDisplayName,
       comment: comment.snippet.topLevelComment.snippet.textOriginal,
     });
-    setWinner({
-      name: "Shiyas",
-      comment: "welldone",
-    });
+
+    setWinner(users[count]);
+    setCount((c)=> c+1)
   };
 
   const handleSubmit = (e) => {
+    console.log(count);
+    if(count>=2){
+      setCount(0)
+    }
     setWinner({ name: "....?", comment: "...?" });
     e.preventDefault();
     try {

@@ -19,7 +19,6 @@ const CommentPicker = () => {
         },
       });
       setComments(response.data.data);
-      console.log(response);
     } catch (error) {
       console.error('Error fetching comments:', error);
     }
@@ -33,8 +32,6 @@ const CommentPicker = () => {
           fields: 'id,permalink',
         },
       });
-      console.log('response')
-      console.log(response)
       const mediaItem = response.data.data.find(item => item.permalink.includes(shortcode));
       return mediaItem ? mediaItem.id : null;
     } catch (error) {
