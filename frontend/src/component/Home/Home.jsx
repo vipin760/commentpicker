@@ -85,6 +85,7 @@ const Home = () => {
       setError(validationErr)
       if (validationErr.length === 0) {
         let url = data.replace("https://www.youtube.com/watch?v=", "");
+        console.log(url);
         getData(url);
       }
     } catch (error) {
@@ -100,7 +101,7 @@ const Home = () => {
         <h2 className="text-xl mt-1 text-white font-bold">
           CONTEST & GIVEAWAY TOOLS
         </h2>
-        <p className="text-white">
+        <p className="text-white text-center text-sm">
           Discover all our free tools to select a winner for a contest, giveaway
         </p>
       </div>

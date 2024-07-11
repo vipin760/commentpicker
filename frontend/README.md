@@ -1,58 +1,16 @@
-https://www.googleapis.com/youtube/v3/comments?key=AIzaSyCMBWkJwLivkq_SCCk666vo6nV7ytZeBvs&id=-8i3p4HbbXA&part=snippet&maxResults=100
-https://www.googleapis.com/youtube/v3/commentThreads?key=AIzaSyCMBWkJwLivkq_SCCk666vo6nV7ytZeBvs&videoId=UImrau29cu8&part=snippet&maxResults=100
+instgram app secret 2d58c906820f7e5db310790584620eeb
+Instagram App ID = 474697441971835
 
-IGQWRNTV93WnZAmd1BOTUhHTUp5V2hfN2g2REhibHB3VDRrcHdpUkhHYnotLWFKeklUZAUZABZAnR2Y3hmQVlITndkT2ZAYM0VvbVNTYVNQT1F0cDNFZA0hjX2lKZA2J3V3EyMUI1RXUtTnFOU2FaSVdWRjA4ZATRBcU9NTEEZD
-
-EAALZCJfpvXe8BO0JRQ8GQichrxZBXfJbbIPhcHJZAnWkknFHD9R7O438Kw1ZAH6I8SjmTd80ZBZA6bPLCyCI5ZBlSqEzsVsa9yy25kOpcT9YWOeZBBzq1bgZANprobN7InNHOADZAZBRdi6hHU6ZByizYgWRpbkl9uf69ZCwRVWxZCJ6rQcHqrhIbw6ZCJGiRR1GXLP0Ulu7ZBNZBjzwzn6VfCETwSy1bEMLlyvX8rYDmrVH6KgF0L1uN9n9ru0UC
-
-https://graph.instagram/me?fields=id,username&access_token=IGQWRNTV93WnZAmd1BOTUhHTUp5V2hfN2g2REhibHB3VDRrcHdpUkhHYnotLWFKeklUZAUZABZAnR2Y3hmQVlITndkT2ZAYM0VvbVNTYVNQT1F0cDNFZA0hjX2lKZA2J3V3EyMUI1RXUtTnFOU2FaSVdWRjA4ZATRBcU9NTEEZD
-
-https://graph.instagram.com/me?fields=id&access_token=IGQWRNTV93WnZAmd1BOTUhHTUp5V2hfN2g2REhibHB3VDRrcHdpUkhHYnotLWFKeklUZAUZABZAnR2Y3hmQVlITndkT2ZAYM0VvbVNTYVNQT1F0cDNFZA0hjX2lKZA2J3V3EyMUI1RXUtTnFOU2FaSVdWRjA4ZATRBcU9NTEEZD
+comment picker
+Instagram App ID = 3799454613647616
+instgram app secret = 2cf7f0f23ab948f9591ae4af90135c7e
+access token = IGQWRQY0hvNVdvajNNUzdGc2JaWmw0a0puWmJxV0FMOHhueXdIem9CZAVFRNmZAnM3NyV0xJdWgyblhnMjBEa2RXMXI2Vjhfd1hpVEkzNUQza3NZAcEJhX1cxMEdqQ0pkOVE1ckMyUGNjZAnFYWldXd191THBpODVGMjgZD
 
 
-https://www.instagram.com/graphql/query/?query_hash=2b0673e0dc4580674a88d426fe00ea90&variables=Zmx4b3J1ZDNnYTl6
+https://www.instagram.com/p/Bi_HU-wAvAr/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==
 
-https://www.instagram.com/reel/C9E7ebapozG/?igsh=Zmx4b3J1ZDNnYTl6
+https://graph.instagram.com/ig_hashtag_search?user_id=USER_ID&q=${hashtag}&access_token=${accessToken}
 
+https://graph.facebook.com/v11.0/{ig-media-id}?fields={fields}&access_token={access-token}
 
-
-
-
-
-
-
-
-
-
-
-https://graph.instagram.com/v12.0/me/media?post_ids=Zmx4b3J1ZDNnYTl6&fields=id,caption,media_type,media_url,permalink,timestamp&access_token=IGQWRNTV93WnZAmd1BOTUhHTUp5V2hfN2g2REhibHB3VDRrcHdpUkhHYnotLWFKeklUZAUZABZAnR2Y3hmQVlITndkT2ZAYM0VvbVNTYVNQT1F0cDNFZA0hjX2lKZA2J3V3EyMUI1RXUtTnFOU2FaSVdWRjA4ZATRBcU9NTEEZD
-
-
-profile data
-https://graph.instagram.com/v12.0/me/media?fields=id,caption,media_type,media_url,permalink,timestamp&access_token=${accessToken}
-
-post data
-https://graph.instagram.com/${mediaId}/comments?fields=id,text,username,timestamp&access_token=${accessToken}
-
-https://graph.instagram.com/C9E7ebapozG/comments?fields=id,text,username,timestamp&access_token=IGQWRNTV93WnZAmd1BOTUhHTUp5V2hfN2g2REhibHB3VDRrcHdpUkhHYnotLWFKeklUZAUZABZAnR2Y3hmQVlITndkT2ZAYM0VvbVNTYVNQT1F0cDNFZA0hjX2lKZA2J3V3EyMUI1RXUtTnFOU2FaSVdWRjA4ZATRBcU9NTEEZD
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-https://www.instagram.com/p/C9OoNg9Pl9x/?igsh=c2JjZDhnNXpiZzBn
-
-https://graph.instagram.com/{media-id}?fields={fields}&access_token={access-token}
-
-https://graph.instagram.com/c2JjZDhnNXpiZzBn?fields=id&access_token=IGQWRNTV93WnZAmd1BOTUhHTUp5V2hfN2g2REhibHB3VDRrcHdpUkhHYnotLWFKeklUZAUZABZAnR2Y3hmQVlITndkT2ZAYM0VvbVNTYVNQT1F0cDNFZA0hjX2lKZA2J3V3EyMUI1RXUtTnFOU2FaSVdWRjA4ZATRBcU9NTEEZD
-
+https://graph.facebook.com/v11.0/18133500736207075?fields=caption,comments_count&access_token=IGQWRQY0hvNVdvajNNUzdGc2JaWmw0a0puWmJxV0FMOHhueXdIem9CZAVFRNmZAnM3NyV0xJdWgyblhnMjBEa2RXMXI2Vjhfd1hpVEkzNUQza3NZAcEJhX1cxMEdqQ0pkOVE1ckMyUGNjZAnFYWldXd191THBpODVGMjgZD
