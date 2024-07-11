@@ -34,6 +34,7 @@ const Home = () => {
   const [error, setError] = useState("");
 
   const getData = async (url) => {
+    console.log('working');
     const response = await axios.get(
       `https://www.googleapis.com/youtube/v3/commentThreads?key=${API_KEY}&videoId=${url}&part=snippet&maxResults=100`
     );
@@ -74,8 +75,10 @@ const Home = () => {
     setWinner({ name: "....?", comment: "...?" });
     e.preventDefault();
     try {
-      const regex =
-       /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]+)/;
+      // const regex =
+      //  /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]+)/;
+
+      const regex = /https:\/\/www\.instagram\.com\/(p|reel)\/[a-zA-Z0-9_-]+\/?\?igsh=[a-zA-Z0-9_-]+/;
       var validationErr="";
       if (!data.trim()) {
         validationErr = "Empty Field not allowed";
@@ -85,7 +88,7 @@ const Home = () => {
       setError(validationErr)
       if (validationErr.length === 0) {
         let url = data.replace("https://www.youtube.com/watch?v=", "");
-        console.log(url);
+        url = "-8i3p4HbbXA&list=RD-8i3p4HbbXA&start_radio=1"
         getData(url);
       }
     } catch (error) {
