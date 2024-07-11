@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 const API_KEY = "AIzaSyCMBWkJwLivkq_SCCk666vo6nV7ytZeBvs";
 const card = [
@@ -40,6 +40,12 @@ const Home = () => {
   const [tempWinner, setTempWinner] = useState({}); // For displaying changing comments
   const [error, setError] = useState("");
   const [ count, setCount] = useState(0)
+  const [ countDown, setCountDown] = useState(10)
+  const [ showWinner, setShowWinner ] = useState(false)
+
+  const intervalRef = useRef(null);
+
+  let countValue ;
 
   const getData = async (url) => {
     const response = await axios.get(
@@ -51,6 +57,7 @@ const Home = () => {
 
     // Temporarily show different comments
     let i = 0;
+    startTime()
     let timer = setInterval(() => {
       setTempWinner({
         name: comments[i].snippet.topLevelComment.snippet.authorDisplayName,
@@ -64,8 +71,14 @@ const Home = () => {
     setTimeout(() => {
       clearInterval(timer);
       selectWinner(comments[randomNum]);
-    }, 5000);
+    }, 10000);
   };
+  
+  const startTime = ()=>{
+    intervalRef.current = setInterval(() => {
+      setCountDown((c)=> c-1)
+    }, 1000);
+  }
 
   const selectWinner = (comment) => {
     setWinner({
@@ -75,10 +88,13 @@ const Home = () => {
 
     setWinner(users[count]);
     setCount((c)=> c+1)
+    clearInterval(intervalRef.current);
+    setShowWinner(true)
   };
 
   const handleSubmit = (e) => {
-    console.log(count);
+    setShowWinner(false)
+    setCountDown(10)
     if(count>=2){
       setCount(0)
     }
@@ -142,12 +158,20 @@ const Home = () => {
         )}
         <div className="text-center">
           <h2 className="text-3xl font-medium text-white pb-1 my-4">Winner</h2>
-          {winner && (
+          {
+            showWinner?(<>
+            {winner && (
             <>
               <p className="text-red-700 font-bold">Name: {winner.name}</p>
               <p className="text-red-700 font-bold">Comment:{winner.comment}</p>
             </>
           )}
+            </>):(<>
+            <div className="bg-white w-20 h-20 rounded-full flex items-center justify-center">
+              <p className="text-3xl font-extrabold">{countDown===10?(<>?</>):(<>{countDown}</>)}</p>
+            </div>
+            </>)
+          }
         </div>
         <div className="text-center my-3">
           <h2 className="text-3xl font-medium text-white pb-4">
